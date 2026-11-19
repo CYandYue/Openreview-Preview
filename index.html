@@ -1,0 +1,102 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenReview Local Preview</title>
+  <meta name="description" content="An offline Markdown and LaTeX editor for OpenReview rebuttals. One HTML file, with live preview and character counting.">
+  <link rel="stylesheet" href="style.css">
+  <script src="mathjax-config.js"></script>
+  <script defer src="vendor/marked.umd.js"></script>
+  <script defer src="vendor/purify.min.js"></script>
+  <script defer src="vendor/mathjax/tex-chtml-full.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>OpenReview <span>Local Preview</span></h1>
+      <p>Write your rebuttal. Check the formatting. Keep your draft local.</p>
+    </div>
+    <div class="file-actions">
+      <button id="open-file" type="button">Open .md</button>
+      <button id="download" type="button">Download .md</button>
+      <button id="copy" class="primary" type="button">Copy Markdown</button>
+      <input id="file-input" type="file" accept=".md,.markdown,.txt,text/plain,text/markdown" hidden>
+    </div>
+  </header>
+
+  <main>
+    <div class="document-bar">
+      <span id="filename">Example draft · replace with your response</span>
+      <label id="follow-control" hidden><input id="follow-file" type="checkbox"> Follow file changes</label>
+      <span id="save-status" role="status"></span>
+    </div>
+
+    <section class="composer" aria-labelledby="comment-label">
+      <div class="field-header">
+        <h2 id="comment-label">Comment<span>*</span></h2>
+        <label class="limit-control">Character limit <input id="limit" type="number" min="1" max="1000000" value="5000" aria-label="Character limit"></label>
+      </div>
+      <p class="field-description">Add formatting using Markdown and formulas using LaTeX.
+        <a href="https://docs.openreview.net/getting-started/frequently-asked-questions" target="_blank" rel="noopener noreferrer">OpenReview FAQ ↗</a>
+      </p>
+
+      <div class="view-tabs" role="group" aria-label="Editor view">
+        <button type="button" data-view="write" aria-pressed="false">Write</button>
+        <button type="button" data-view="preview" aria-pressed="false">Preview</button>
+        <button type="button" data-view="split" aria-pressed="true">Split view</button>
+        <span id="render-status" role="status" data-state="loading">Loading math engine…</span>
+      </div>
+
+      <div id="panes" class="panes" data-view="split">
+        <div class="editor-pane">
+          <label for="source" class="pane-label">MARKDOWN SOURCE</label>
+          <textarea id="source" spellcheck="false" aria-label="Rebuttal Markdown source" placeholder="Paste your rebuttal here…"></textarea>
+        </div>
+        <div class="preview-pane">
+          <div class="pane-label">OPENREVIEW-STYLE PREVIEW</div>
+          <div id="preview" class="markdown-rendered" aria-label="Rendered preview"></div>
+        </div>
+      </div>
+
+      <div class="composer-footer">
+        <span id="counter" aria-live="polite"></span>
+        <span class="tex-hint">TeX is supported · Write <code>\\</code> for each formula backslash <code>\</code></span>
+      </div>
+    </section>
+
+    <details class="help">
+      <summary>Syntax examples &amp; how to use</summary>
+      <div class="help-grid">
+        <div>
+          <h3>Write the text you will paste into OpenReview</h3>
+          <pre>### Q1. Motivation
+**Key point.** Our method supports $\\alpha$.
+
+$$
+\\frac{a}{b} = 0.8
+$$</pre>
+          <p>Use <code>$...$</code> for inline math and <code>$$...$$</code> for display math. In a Markdown-enabled field, escape each formula backslash. Matrix or aligned line breaks need four backslashes <code>\\\\</code> in the source, leaving the two required by LaTeX after Markdown parsing.</p>
+          <p>Escape underscores when they conflict with Markdown emphasis, for example <code>$x\_i$</code>. Use Markdown for headings, emphasis, lists, and tables. Image embeds and inline HTML follow OpenReview's restrictions.</p>
+        </div>
+        <div>
+          <h3>Files, drafts &amp; character counts</h3>
+          <p>Edit on the left or open a <code>.md</code> file. Browsers with the File System Access API can follow saves from VS Code or another editor. Typing here automatically pauses file following.</p>
+          <p>Drafts are saved in this browser. They are not written back to the original file. Use “Download .md” to save a copy and “Copy Markdown” to paste into OpenReview. ⌘/Ctrl + S downloads your draft.</p>
+          <p>The default limit is 5000 characters; adjust it to match your venue's field. The counter uses <code>text.trim().length</code>, including Markdown and formulas. Download your draft for a durable backup.</p>
+          <p>Marked, DOMPurify, MathJax, and math fonts run locally. The rendering rules are based on OpenReview's source. Font, width, field configuration, and site versions can differ; check the official Preview before submitting.</p>
+        </div>
+      </div>
+      <p class="help-links">
+        Official docs:
+        <a href="https://docs.openreview.net/how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments" target="_blank" rel="noopener noreferrer">Markdown</a> ·
+        <a href="https://docs.openreview.net/reference/openreview-tex/openreview-tex-support" target="_blank" rel="noopener noreferrer">TeX support</a> ·
+        <a href="https://docs.openreview.net/reference/openreview-tex/common-issues-with-latex-code-display" target="_blank" rel="noopener noreferrer">Troubleshooting formulas</a>
+      </p>
+    </details>
+    <p id="notice" class="notice" role="status" hidden></p>
+  </main>
+</body>
+</html>
