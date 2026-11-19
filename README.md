@@ -6,14 +6,14 @@
 
 A local Markdown + LaTeX editor, packaged into a single HTML file.
 
-[![Download](https://img.shields.io/badge/Download-single_HTML-3e6775?style=flat-square)](https://github.com/CYandYue/openreview-local-preview/releases/latest/download/OpenReview-standalone.html)
+[![Download](https://img.shields.io/badge/Download-single_HTML-3e6775?style=flat-square)](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html)
 ![Offline](https://img.shields.io/badge/Works-offline-5c7161?style=flat-square)
 ![Setup](https://img.shields.io/badge/Setup-none-8c1b13?style=flat-square)
 [![License](https://img.shields.io/badge/License-AGPL_v3-8a7250?style=flat-square)](LICENSE)
 
 **English** · [简体中文](README.zh-CN.md)
 
-[Download the app](https://github.com/CYandYue/openreview-local-preview/releases/latest/download/OpenReview-standalone.html) · [See an example](examples/rebuttal.md) · [Report an issue](https://github.com/CYandYue/openreview-local-preview/issues)
+[Download the app](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html) · [See an example](examples/rebuttal.md) · [Report an issue](https://github.com/CYandYue/Openreview-Preview/issues)
 
 </div>
 
@@ -23,13 +23,13 @@ Writing a rebuttal in a regular Markdown editor can hide formatting differences 
 
 ## Start in three steps
 
-1. **[Download `OpenReview-standalone.html`](https://github.com/CYandYue/openreview-local-preview/releases/latest/download/OpenReview-standalone.html).**
+1. **[Open the file page](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html)** and click **Download raw file** (the ↓ button) to save `OpenReview-standalone.html`.
 2. **Open it in your browser.** Chrome or Edge is recommended. No installation or server is needed.
 3. **Write, preview, and copy.** Paste your rebuttal or open a `.md` file, then use **Copy Markdown** to move the source into OpenReview.
 
-The release file is about **2 MB**. Scripts, styles, the formula engine, the safe extension, and math fonts are embedded. You can keep it on your laptop or send that one file to a coauthor.
+The standalone file is about **2 MB**. Scripts, styles, the formula engine, the safe extension, and math fonts are embedded. You can keep it on your laptop or send that one file to a coauthor.
 
-You can also [download the committed build](OpenReview-standalone.html) using GitHub's **Download raw file** button, or clone this repository and open `index.html` with its companion files.
+If you prefer Git, clone this repository and open `OpenReview-standalone.html`, or use `index.html` with its companion files. No GitHub Release is required.
 
 ## Made for the rebuttal workflow
 

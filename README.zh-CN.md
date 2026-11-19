@@ -6,14 +6,14 @@
 
 一个 HTML 文件，在本地实时预览 Markdown 和 LaTeX。
 
-[![下载](https://img.shields.io/badge/Download-single_HTML-3e6775?style=flat-square)](https://github.com/CYandYue/openreview-local-preview/releases/latest/download/OpenReview-standalone.html)
+[![下载](https://img.shields.io/badge/Download-single_HTML-3e6775?style=flat-square)](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html)
 ![离线可用](https://img.shields.io/badge/Works-offline-5c7161?style=flat-square)
 ![无需安装](https://img.shields.io/badge/Setup-none-8c1b13?style=flat-square)
 [![许可证](https://img.shields.io/badge/License-AGPL_v3-8a7250?style=flat-square)](LICENSE)
 
 [English](README.md) · **简体中文**
 
-[下载单文件版](https://github.com/CYandYue/openreview-local-preview/releases/latest/download/OpenReview-standalone.html) · [查看写作示例](examples/rebuttal.md) · [反馈问题](https://github.com/CYandYue/openreview-local-preview/issues)
+[下载单文件版](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html) · [查看写作示例](examples/rebuttal.md) · [反馈问题](https://github.com/CYandYue/Openreview-Preview/issues)
 
 </div>
 
@@ -23,13 +23,13 @@
 
 ## 三步开始
 
-1. **[下载 `OpenReview-standalone.html`](https://github.com/CYandYue/openreview-local-preview/releases/latest/download/OpenReview-standalone.html)。**
+1. **[打开文件页面](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html)**，点击 **Download raw file**（↓ 下载按钮），保存 `OpenReview-standalone.html`。
 2. **用浏览器打开。** 推荐 Chrome 或 Edge，无需安装，也不用启动服务器。
 3. **编辑、预览、复制。** 粘贴 rebuttal 或打开 `.md` 文件，确认格式后点击 **Copy Markdown**，再粘贴到 OpenReview。
 
 文件约 **2 MB**，已经内嵌脚本、样式、公式引擎、safe 扩展和数学字体。留在电脑里随时用，发给合作者也只需要这一个文件。
 
-也可以在[仓库内的构建文件](OpenReview-standalone.html)页面点击 **Download raw file** 下载；克隆完整仓库后，也能打开 `index.html` 使用多文件版本。
+如果习惯 Git，也可以克隆完整仓库后打开 `OpenReview-standalone.html`，或打开 `index.html` 使用多文件版本。下载和使用均不需要发布 GitHub Release。
 
 ## 为 rebuttal 写作准备的功能
 
