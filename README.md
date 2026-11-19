@@ -13,7 +13,7 @@ A local Markdown + LaTeX editor, packaged into a single HTML file.
 
 **English** · [简体中文](README.zh-CN.md)
 
-[Download the app](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html) · [See an example](examples/rebuttal.md) · [Report an issue](https://github.com/CYandYue/Openreview-Preview/issues)
+[Download the app](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html) · [See an example](docs/examples/rebuttal.md) · [Report an issue](https://github.com/CYandYue/Openreview-Preview/issues)
 
 </div>
 
@@ -29,7 +29,19 @@ Writing a rebuttal in a regular Markdown editor can hide formatting differences 
 
 The standalone file is about **2 MB**. Scripts, styles, the formula engine, the safe extension, and math fonts are embedded. You can keep it on your laptop or send that one file to a coauthor.
 
-If you prefer Git, clone this repository and open `OpenReview-standalone.html`, or use `index.html` with its companion files. No GitHub Release is required.
+If you prefer Git, clone this repository and open `OpenReview-standalone.html`. No GitHub Release is required.
+
+## Repository layout
+
+```text
+OpenReview-standalone.html   The complete app — download this file
+source/                     Editable source, dependencies, builder and tests
+docs/                       Screenshots, example Markdown and third-party notices
+README.md / README.zh-CN.md  Usage guides
+LICENSE                     AGPL-3.0-only
+```
+
+For source changes and development commands, see the [developer guide](source/README.md).
 
 ## Made for the rebuttal workflow
 
@@ -50,7 +62,7 @@ Use **Preview** to check headings, emphasis, tables, and multi-line equations to
 
 ![Preview mode showing a fictional rebuttal with a table and equations](docs/images/preview.png)
 
-Screenshots use the [fictional example](examples/rebuttal.md); the reported numbers are only formatting samples.
+Screenshots use the [fictional example](docs/examples/rebuttal.md); the reported numbers are only formatting samples.
 
 ## The backslash detail that matters
 
@@ -87,41 +99,12 @@ The [official TeX support guide](https://docs.openreview.net/reference/openrevie
 
 ## Build and contribute
 
-The app itself needs only a browser. **Python is used to rebuild** the release file; **Node.js is used only for development checks and screenshots**.
-
-```sh
-# Regenerate the self-contained HTML using Python 3.9+.
-python3 build_standalone.py
-
-# Install development tools using Node.js 20+.
-npm ci
-
-# If Google Chrome is not installed, install Chromium for the tests.
-npx playwright-core install chromium
-
-# Run offline browser checks and refresh the README screenshots.
-npm test
-npm run screenshots
-```
-
-The browser scripts use installed Chrome on macOS, or Playwright's Chromium. Set `CHROME_PATH` to use a different Chrome/Chromium executable.
-
-```text
-OpenReview-standalone.html   Ready-to-share app
-index.html                  Editable page source
-app.js / style.css          Editor behavior and appearance
-mathjax-config.js           OpenReview-style math configuration
-vendor/                     Pinned runtime libraries and math fonts
-build_standalone.py          Reproducible single-file builder
-examples/                   Fictional rebuttal used in screenshots
-tests/                      Offline browser checks
-docs/images/                Actual app screenshots
-```
+All development files live in [`source/`](source/README.md). The developer guide covers editing the source version, rebuilding the single-file app, running offline browser checks, and refreshing screenshots. Python 3.9+ is used for builds; Node.js 20+ is used for development checks.
 
 Bug reports and small, focused pull requests are welcome. For rendering issues, include a minimal Markdown example and your browser version.
 
 ## License and acknowledgments
 
-**[AGPL-3.0-only](LICENSE).** Rendering behavior and configuration are adapted from the [OpenReview web frontend](https://github.com/openreview/openreview-web). Marked, DOMPurify, MathJax, and their respective licenses are retained; see [third-party notices](THIRD_PARTY_NOTICES.md).
+**[AGPL-3.0-only](LICENSE).** Rendering behavior and configuration are adapted from the [OpenReview web frontend](https://github.com/openreview/openreview-web). Marked, DOMPurify, MathJax, and their respective licenses are retained; see [third-party notices](docs/THIRD_PARTY_NOTICES.md).
 
 Created by [CYandYue](https://github.com/CYandYue).

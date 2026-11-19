@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-// Copyright (C) 2026 CYandYue. Adapted renderer behavior: see THIRD_PARTY_NOTICES.md.
+// Copyright (C) 2026 CYandYue. Adapted renderer behavior: see docs/THIRD_PARTY_NOTICES.md in the repository.
 /* global marked, DOMPurify, MathJax */
 (() => {
   'use strict';

@@ -7,7 +7,7 @@ const { pathToFileURL } = require('node:url');
 const { launch, ready } = require('../scripts/browser.cjs');
 
 (async () => {
-  const root = path.resolve(__dirname, '..');
+  const root = path.resolve(__dirname, '../..');
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'openreview-preview-test-'));
   const isolatedFile = path.join(directory, 'shared-preview.html');
   await fs.copyFile(path.join(root, 'OpenReview-standalone.html'), isolatedFile);
@@ -64,7 +64,7 @@ CODE_PLACEHOLDER
     console.log('PASS escaped commands, matrix rows, inline code and OpenReview HTML/image restrictions');
 
     const sourcePage = await context.newPage();
-    await sourcePage.goto(pathToFileURL(path.join(root, 'index.html')).href);
+    await sourcePage.goto(pathToFileURL(path.join(root, 'source/index.html')).href);
     await ready(sourcePage);
     await sourcePage.locator('#source').fill(fixture);
     await ready(sourcePage);

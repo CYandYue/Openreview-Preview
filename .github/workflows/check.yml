@@ -9,6 +9,9 @@ permissions:
 jobs:
   browser:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: source
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -18,8 +21,9 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+          cache-dependency-path: source/package-lock.json
       - run: npm ci
       - run: npx playwright-core install --with-deps chromium
       - run: python3 build_standalone.py
-      - run: git diff --exit-code -- OpenReview-standalone.html
+      - run: git -C .. diff --exit-code -- OpenReview-standalone.html
       - run: npm test

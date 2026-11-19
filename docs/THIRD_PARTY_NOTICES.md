@@ -4,10 +4,10 @@ OpenReview Local Preview is distributed under **AGPL-3.0-only**. It adapts Markd
 
 | Component | Version | License | Local copy |
 | --- | --- | --- | --- |
-| [OpenReview web](https://github.com/openreview/openreview-web) configuration and style adaptations | Referenced November 2026 | AGPL-3.0 | [License](vendor/openreview-web-LICENSE.md) |
-| [Marked](https://github.com/markedjs/marked) | 15.0.6 | MIT | [License](vendor/marked-LICENSE.md) |
-| [DOMPurify](https://github.com/cure53/DOMPurify) | 3.4.17 | Apache-2.0 OR MPL-2.0 | [Distributed license](vendor/purify-LICENSE) |
-| [MathJax](https://github.com/mathjax/MathJax) runtime, safe extension, and included CHTML fonts | 3.2.2 | Apache-2.0 | [License](vendor/mathjax/LICENSE) |
+| [OpenReview web](https://github.com/openreview/openreview-web) configuration and style adaptations | Referenced November 2026 | AGPL-3.0 | [License](../source/vendor/openreview-web-LICENSE.md) |
+| [Marked](https://github.com/markedjs/marked) | 15.0.6 | MIT | [License](../source/vendor/marked-LICENSE.md) |
+| [DOMPurify](https://github.com/cure53/DOMPurify) | 3.4.17 | Apache-2.0 OR MPL-2.0 | [Distributed license](../source/vendor/purify-LICENSE) |
+| [MathJax](https://github.com/mathjax/MathJax) runtime, safe extension, and included CHTML fonts | 3.2.2 | Apache-2.0 | [License](../source/vendor/mathjax/LICENSE) |
 | [Playwright](https://github.com/microsoft/playwright), development only | 1.51.1 | Apache-2.0 | Installed by npm for tests and screenshots |
 
 The standalone build embeds the applicable runtime licenses and its build script. The preferred editable source, vendored runtime assets, and build instructions are included in this repository.

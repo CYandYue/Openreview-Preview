@@ -13,7 +13,7 @@
 
 [English](README.md) · **简体中文**
 
-[下载单文件版](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html) · [查看写作示例](examples/rebuttal.md) · [反馈问题](https://github.com/CYandYue/Openreview-Preview/issues)
+[下载单文件版](https://github.com/CYandYue/Openreview-Preview/blob/main/OpenReview-standalone.html) · [查看写作示例](docs/examples/rebuttal.md) · [反馈问题](https://github.com/CYandYue/Openreview-Preview/issues)
 
 </div>
 
@@ -29,7 +29,19 @@
 
 文件约 **2 MB**，已经内嵌脚本、样式、公式引擎、safe 扩展和数学字体。留在电脑里随时用，发给合作者也只需要这一个文件。
 
-如果习惯 Git，也可以克隆完整仓库后打开 `OpenReview-standalone.html`，或打开 `index.html` 使用多文件版本。下载和使用均不需要发布 GitHub Release。
+如果习惯 Git，也可以克隆完整仓库后打开 `OpenReview-standalone.html`。下载和使用均不需要发布 GitHub Release。
+
+## 仓库结构
+
+```text
+OpenReview-standalone.html   完整可用的工具，下载这一个文件即可
+source/                     源码、依赖、构建脚本和开发检查
+docs/                       截图、Markdown 示例和第三方组件说明
+README.md / README.zh-CN.md  使用说明
+LICENSE                     AGPL-3.0-only 许可证
+```
+
+需要修改源码或重新构建时，可查看[开发指南](source/README.md)。
 
 ## 为 rebuttal 写作准备的功能
 
@@ -50,7 +62,7 @@
 
 ![纯预览模式：表格、加粗与多行公式](docs/images/preview.png)
 
-截图使用[虚构的写作示例](examples/rebuttal.md)，数值仅用于演示格式。
+截图使用[虚构的写作示例](docs/examples/rebuttal.md)，数值仅用于演示格式。
 
 ## 反斜杠是容易踩坑的地方
 
@@ -87,41 +99,12 @@ $$
 
 ## 构建与贡献
 
-**使用只需要浏览器。** Python 用于重新构建单文件版，Node.js 仅用于开发检查和截图。
-
-```sh
-# Python 3.9+：重新生成单文件版。
-python3 build_standalone.py
-
-# Node.js 20+：安装开发工具。
-npm ci
-
-# 如果没有安装 Google Chrome，为测试安装 Chromium。
-npx playwright-core install chromium
-
-# 检查离线运行并重新生成 README 截图。
-npm test
-npm run screenshots
-```
-
-浏览器脚本会使用 macOS 已安装的 Chrome，或 Playwright 的 Chromium。也可以用环境变量 `CHROME_PATH` 指定可执行文件。
-
-```text
-OpenReview-standalone.html   可以直接分享的单文件版
-index.html                  可编辑的页面源码
-app.js / style.css          编辑行为和页面样式
-mathjax-config.js           公式渲染配置
-vendor/                     固定版本的运行库和数学字体
-build_standalone.py          可重复运行的单文件构建脚本
-examples/                   截图使用的虚构 rebuttal
-tests/                      离线浏览器检查
-docs/images/                工具实际运行截图
-```
+所有开发文件集中在 [`source/`](source/README.md)，开发指南中包含源码版使用、单文件构建、离线浏览器检查和截图更新步骤。构建需要 Python 3.9+，开发检查需要 Node.js 20+。
 
 欢迎反馈问题或提交范围明确的 PR。遇到渲染问题时，请附上最小 Markdown 示例和浏览器版本。
 
 ## 许可证与致谢
 
-采用 **[AGPL-3.0-only](LICENSE)**，部分渲染行为和配置参考 [OpenReview 官方前端](https://github.com/openreview/openreview-web)。Marked、DOMPurify、MathJax 保留各自许可证，详见[第三方组件说明](THIRD_PARTY_NOTICES.md)。
+采用 **[AGPL-3.0-only](LICENSE)**，部分渲染行为和配置参考 [OpenReview 官方前端](https://github.com/openreview/openreview-web)。Marked、DOMPurify、MathJax 保留各自许可证，详见[第三方组件说明](docs/THIRD_PARTY_NOTICES.md)。
 
 作者：[CYandYue](https://github.com/CYandYue)。
